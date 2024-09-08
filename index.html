@@ -16,10 +16,13 @@
       font-family: "Architects Daughter", cursive;
       font-weight: 400;
       font-style: normal;
+      color: #155263;
+      background: #ff9a3c;
     }
 
     h1 {
       text-align: center;
+      font-size: 60px;
     }
 
     .grid {
@@ -29,14 +32,74 @@
 
     .today {
       margin-right: 70px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
+      width: 200px;
     }
 
     .week {
       margin: 0px 70px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
     }
 
     .month {
       margin-left: 70px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
+    }
+
+    .today-input {
+      margin: 20px 70px 0px 0px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
+    }
+    .week-input {
+      margin: 20px 70px 0px 70px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
+    }
+
+    .month-input {
+      margin: 20px 0px 0px 70px;
+      background: radial-gradient(
+        circle at 10% 20%,
+        rgb(255, 200, 124) 0%,
+        rgb(252, 251, 121) 90%
+      );
+      padding: 20px 30px;
+      border-radius: 6px;
+      font-size: 25px;
     }
   </style>
   <body>
@@ -45,6 +108,11 @@
       <div class="today">To do today</div>
       <div class="week">To do this week</div>
       <div class="month">To do this month</div>
+    </div>
+    <div class="grid">
+      <div class="today-input">Example</div>
+      <div class="week-input">Example</div>
+      <div class="month-input">Example</div>
     </div>
   </body>
 </html>
