@@ -3,9 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+      rel="stylesheet"
+    />
     <title>To Do List</title>
   </head>
+  <style>
+    body {
+      font-family: "Architects Daughter", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .today {
+      margin-right: 70px;
+    }
+
+    .week {
+      margin: 0px 70px;
+    }
+
+    .month {
+      margin-left: 70px;
+    }
+  </style>
   <body>
     <h1>To Do List</h1>
+    <div class="grid">
+      <div class="today">To do today</div>
+      <div class="week">To do this week</div>
+      <div class="month">To do this month</div>
+    </div>
   </body>
 </html>
