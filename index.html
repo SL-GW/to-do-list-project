@@ -30,10 +30,20 @@
       text-align: center;
       font-size: 80px;
       margin: 30px 0px;
+      font-weight: 800;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0px;
     }
 
     .row {
       text-align: center;
+    }
+
+    li {
+      font-size: 28px;
     }
 
     .header {
@@ -44,7 +54,9 @@
       );
       padding: 20px 30px;
       border-radius: 6px;
-      font-size: 25px;
+      font-size: 28px;
+      font-weight: 600;
+      text-decoration: underline;
     }
 
     .body {
@@ -66,18 +78,158 @@
     .col-3:last-child {
       margin-right: 0;
     }
+
+    .input-text {
+      color: #155263;
+      border-radius: 6px;
+      border: solid 2px #ff6f3c;
+      margin: 5px 0px;
+      font-size: 24px;
+      width: 310px;
+    }
+
+    .input-button {
+      color: #155263;
+      border-radius: 6px;
+      font-size: 24px;
+      border: solid 2px #ff6f3c;
+    }
+    .input-button:hover {
+      color: #ff6f3c;
+      border-radius: 6px;
+      border: solid 2px #155263;
+    }
+
+    .delete-task {
+      color: #155263;
+      border-radius: 6px;
+      font-size: 20px;
+      border: solid 2px #ff6f3c;
+    }
   </style>
   <body>
     <h1>To Do List</h1>
     <div class="row justify-content-center">
-      <div class="col-3 header">To do today</div>
-      <div class="col-3 header">To do this week</div>
-      <div class="col-3 header">To do this month</div>
+      <div class="col-3 header">
+        <div>To do today</div>
+        <form id="to-do-today">
+          <input
+            id="to-do-input-today"
+            class="input-text"
+            type="text"
+            placeholder="Task to do today"
+          />
+          <input class="input-button" type="submit" value="Enter" />
+        </form>
+      </div>
+      <div class="col-3 header">
+        <div>To do this week</div>
+        <form id="to-do-week">
+          <input
+            id="to-do-input-week"
+            class="input-text"
+            type="text"
+            placeholder="Task to do this week"
+          />
+          <input class="input-button" type="submit" value="Enter" />
+        </form>
+      </div>
+      <div class="col-3 header">
+        <div>To do this month</div>
+        <form id="to-do-month">
+          <input
+            id="to-do-input-month"
+            class="input-text"
+            type="text"
+            placeholder="Task to do this month"
+          />
+          <input class="input-button" type="submit" value="Enter" />
+        </form>
+      </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-3 body">Example 1</div>
-      <div class="col-3 body">Example 2</div>
-      <div class="col-3 body">Example 3</div>
+      <div class="col-3 body">
+        <ul id="to-do-list-day">
+          <li></li>
+        </ul>
+      </div>
+      <div class="col-3 body">
+        <ul id="to-do-list-week">
+          <li></li>
+        </ul>
+      </div>
+      <div class="col-3 body">
+        <ul id="to-do-list-month">
+          <li></li>
+        </ul>
+      </div>
     </div>
+    <script>
+      let toDoTodayForm = document.getElementById("to-do-today");
+      let toDoInputToday = document.getElementById("to-do-input-today");
+      let toDoListToday = document.getElementById("to-do-list-day");
+
+      toDoTodayForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let taskText = toDoInputToday.value;
+        if (taskText) {
+          addTaskToList(taskText, toDoListToday);
+          toDoInputToday.value = "";
+        }
+      });
+
+      let toDoWeekForm = document.getElementById("to-do-week");
+      let toDoInputWeek = document.getElementById("to-do-input-week");
+      let toDoListWeek = document.getElementById("to-do-list-week");
+
+      toDoWeekForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let taskText = toDoInputWeek.value;
+        if (taskText) {
+          addTaskToList(taskText, toDoListWeek);
+          toDoInputWeek.value = "";
+        }
+      });
+
+      let toDoMonthForm = document.getElementById("to-do-month");
+      let toDoInputMonth = document.getElementById("to-do-input-month");
+      let toDoListMonth = document.getElementById("to-do-list-month");
+
+      toDoMonthForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let taskText = toDoInputMonth.value;
+        if (taskText) {
+          addTaskToList(taskText, toDoListMonth);
+          toDoInputMonth.value = "";
+        }
+      });
+
+      function addTaskToList(taskText, list) {
+        let newTask = document.createElement("li");
+        newTask.innerHTML = `
+      ${taskText}
+      <input type="checkbox" class="complete-task" />
+      <button class="delete-task">Delete</button>
+    `;
+
+        list.appendChild(newTask);
+
+        newTask
+          .querySelector(".complete-task")
+          .addEventListener("change", function () {
+            if (this.checked) {
+              newTask.style.textDecoration = "line-through";
+            } else {
+              newTask.style.textDecoration = "none";
+            }
+          });
+
+        newTask
+          .querySelector(".delete-task")
+          .addEventListener("click", function () {
+            list.removeChild(newTask);
+          });
+      }
+    </script>
   </body>
 </html>
